@@ -1,0 +1,40 @@
+<main class="d-flex align-items-center justify-content-center text-center">
+  <div class="container text-white">
+    <h1 class="mb-3">Current Tasks</h1>
+
+    <div class="current-tasks-area">
+      <ul>
+        <li *ngFor="let todo of todos; index as i;">
+          <div class="input-group mb-3">
+            <div class="input-group-text">
+              <input class="form-check-input mt-0" type="checkbox"  (click)="todo.toggleTask()" />
+            </div>
+            <input type="text"
+              [ngClass]="{'form-control':true, 'task':true, 'done':todo.completed, editing:editFlag[i]}" 
+              [(ngModel)]="todo.task" 
+              [disabled]="!editFlag[i]"
+              (keyUp.enter)="editFlag[i]=!editFlag[i]"
+            >
+            <button 
+              [ngClass]="{'btn':true, 'btn-outline-light':true, 'editing':editFlag[i]}" 
+              (click)="editFlag[i]=!editFlag[i];">{{editFlag[i] ? 'Save':'Edit'}}
+            </button>
+            <button class="btn btn-outline-danger delete border-0" (click)="deleteTodo(i)">x</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="new-task-area">
+      <h1 class="mb-3">Add New Task</h1>
+      <form #newTask="ngForm" (ngSubmit)="handleSubmit(newTask.value)">
+        <div class="input-group mb-3">
+          <input class="form-control" name="task" type="text" ngModel />
+          <input class="btn btn-outline-light" type="submit">
+        </div>
+      </form>
+    </div>
+
+  </div>
+</main>

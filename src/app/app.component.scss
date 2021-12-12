@@ -1,0 +1,30 @@
+main{
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.new-task-area{
+    padding: 20px;
+}
+.current-tasks-area{
+    height: 60vh;
+    overflow: scroll;
+    border-radius: 0.25rem;
+    padding: 20px 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+ul{
+    list-style: none;
+}
+.form-control:disabled, .form-control {
+    background: transparent;
+    padding: 20px;
+    color: #fff;
+}
+.delete {
+    font-size: 19px;
+    font-weight: bold;
+}
+.editing{
+    color: yellow !important;
+}
